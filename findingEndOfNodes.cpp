@@ -42,10 +42,28 @@ void findEndOfTree(Node *root)
     
     while(!currentStack.empty())
     {
+        struct Node* temp = currentStack.top();
+        currentStack.pop();
         
+        if(temp->left == NULL && temp->right == NULL)
+        {
+            printf("-> Ending node : <%d>\n",temp->data);
+        }
+        
+        if(temp->left)
+        {
+            nextStack.push(temp->left);
+        }
+        if(temp->right)
+        {
+            nextStack.push(temp->right);
+        }
+        
+        if(currentStack.empty())
+        {
+            swap(currentStack,nextStack);
+        }
     }
-    
-    
 }
 
 int main(int argc, char** argv) {
