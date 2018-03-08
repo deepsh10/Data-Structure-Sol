@@ -12,15 +12,12 @@
  */
 
 #include <cstdlib>
+#include "iostream"
+#include "stack"
 
 using namespace std;
 
-struct Node* newNode(int data)
-{
-    struct Node* temp = new Node();
-    
-    return temp;
-}
+
 
 struct Node
 {
@@ -28,8 +25,36 @@ struct Node
     Node *right=NULL,*left=NULL;
 };
 
-int main(int argc, char** argv) {
+struct Node* newNode(int data)
+{
+    struct Node* temp = new Node();
+    temp->data = data;
+    temp->right = temp->left = NULL;
+    return temp;
+}
+
+void findEndOfTree(Node *root)
+{
+    stack < Node * > currentStack;
+    stack < Node * > nextStack;
     
+    currentStack.push(root);
+    
+    while(!currentStack.empty())
+    {
+        
+    }
+    
+    
+}
+
+int main(int argc, char** argv) {
+    struct Node* root = newNode(3);
+    root->right = newNode(4);
+    root->left = newNode(6);
+    root->right->right = newNode(7);
+    
+    findEndOfTree(root);
     
     return 0;
 }
